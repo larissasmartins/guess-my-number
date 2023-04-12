@@ -7,7 +7,6 @@
 
 
 let secretNumber = Math.trunc(Math.random() * 50) + 1;
-document.querySelector('.number').textContent = secretNumber;
 
 let score = 20;
 
@@ -42,8 +41,25 @@ let guess = Number(document.querySelector('.guess').value);
         //when player wins the game
     } else if (guess === secretNumber) {
         document.body.style.backgroundColor = '#32CD32';
-        document.querySelector('.number').style.width = '30rem';
-        document.querySelector('.number').style.padding = '6rem';
+        document.querySelector('.number').style.width = '25rem';
+        document.querySelector('.number').style.padding = '5rem';
+        document.querySelector('.number').style.fontSize = '8rem';
         document.querySelector('.message').textContent = 'Correct number!';
+        document.querySelector('.number').textContent = secretNumber; 
     }
-})
+});
+
+document.querySelector('.again').addEventListener('click', function() {
+    score = 20;
+    document.querySelector('.number').textContent = '?';
+    secretNumber = Math.trunc(Math.random() * 50) + 1;
+
+    document.querySelector('.guess').value = '';
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.score').textContent = score;
+
+    document.body.style.backgroundColor = '#000000';
+    document.querySelector('.number').style.width = '15rem';
+    document.querySelector('.number').style.padding = '3rem';
+    document.querySelector('.number').style.fontSize = '6rem';    
+});
