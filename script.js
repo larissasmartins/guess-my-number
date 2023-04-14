@@ -45,6 +45,13 @@ let guess = Number(document.querySelector('.guess').value);
         if (score > highscore) {
             document.querySelector('.highscore').textContent = score;
         }
+
+        if (window.innerWidth < 767) {        
+            document.querySelector('.number').style.width = '20rem';
+            document.querySelector('.number').style.padding = '4rem';
+            document.querySelector('.number').style.fontSize = '6rem';            
+        }
+
     }
 });
 
