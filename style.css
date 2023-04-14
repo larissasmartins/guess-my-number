@@ -118,5 +118,46 @@ h1 {
 }
 
 @media (max-width: 767px) {
+  main {
+    flex-direction: column;
+    margin-top: 50px;
+    justify-content: space-evenly;
+  }
 
+  .message {
+    margin-bottom: 6rem;
+  }
+
+  .right, 
+  .left {
+    max-width: 52rem;
+    width: unset;
+  }
+
+  h1, 
+  .message {
+    line-height: 1.5;
+  }
+
+  .btn {
+    padding: 1.3rem 1.8rem;
+    font-size: 1.2rem;
+  }
+
+  .guess {
+    font-size: 3rem;
+    max-width: 20rem;
+    width: unset;
+  }
+
+  .message, 
+  .label-score, 
+  .label-highscore {
+    font-size: 1.6rem;
+  }
+
+  .between {
+    font-size: 1.2rem;
+    margin-top: 15px;
+  }
 }
