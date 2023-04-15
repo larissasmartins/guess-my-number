@@ -9,10 +9,15 @@ const messageElement= document.querySelector('.message');
 const numberElement = document.querySelector('.number');
 const scoreElement = document.querySelector('.score');
 const guessElement = document.querySelector('.guess');
+const modalElement = document.querySelector('.modal_game-over');
+const modalMessageElement= document.querySelector('.modal_message');
+const overlay = document.querySelector('.overlay');
+const closeModalButton = document.querySelector('.modal_close-btn');
 
 //function that handles the game messages
 const displayMessage = function(message){
     messageElement.textContent = message;
+    modalMessageElement.textContent = message;
 };
 
 //function that handles the score updating
@@ -21,6 +26,11 @@ const updateScore = function() {
     scoreElement.textContent = score;
 };
 
+//function that handless the modal close 
+const closeModal = function() {
+    modalElement.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
 
 const guessNumber = function() {
 let guess = Number(document.querySelector('.guess').value);
@@ -37,7 +47,9 @@ let guess = Number(document.querySelector('.guess').value);
         } else {
             scoreElement.textContent = 0;
             document.body.style.backgroundColor = '#FF0000';
-            displayMessage('🔚 Game over!');
+            displayMessage('⚠️ Game over! Do you want to play again?');
+            modalElement.classList.remove('hidden');
+            overlay.classList.remove('hidden');
         }    
         //when player wins the game
     } else {
@@ -63,6 +75,8 @@ let guess = Number(document.querySelector('.guess').value);
 
 //function to restart the game
 const restartGame = function() {
+    modalElement.classList.add('hidden');
+    overlay.classList.add('hidden');
     score = 20;
     secretNumber = Math.trunc(Math.random() * 50) + 1;
 

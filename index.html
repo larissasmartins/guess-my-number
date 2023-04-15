@@ -14,6 +14,12 @@
       <button class="btn again" onclick="restartGame()">Again!</button>
       <div class="number">?</div>
     </header>
+    <div class="modal_game-over hidden">
+      <button class="modal_close-btn" onclick="closeModal()">&times;</button>
+      <p class="modal_message"></p>
+      <button class="btn again" onclick="restartGame()">Again!</button>
+    </div>
+    <div class="overlay hidden" onclick="closeModal()"></div>
     <main>
       <section class="left">
         <input type="number" class="guess" />
