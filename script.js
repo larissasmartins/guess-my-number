@@ -9,7 +9,7 @@ const displayMessage = function(message){
     document.querySelector('.message').textContent = message;
 } 
 
-document.querySelector('.check').addEventListener('click', function() {
+const guessNumber = function() {
 let guess = Number(document.querySelector('.guess').value);
 
     //when there's no input
@@ -47,9 +47,10 @@ let guess = Number(document.querySelector('.guess').value);
             document.querySelector('.number').style.fontSize = '6rem';            
         }
     }
-});
+};
 
-document.querySelector('.again').addEventListener('click', function() {
+
+const restartGame = function() {
     score = 20;
     document.querySelector('.number').textContent = '?';
     secretNumber = Math.trunc(Math.random() * 50) + 1;
@@ -62,4 +63,12 @@ document.querySelector('.again').addEventListener('click', function() {
     document.querySelector('.number').style.width = '15rem';
     document.querySelector('.number').style.padding = '3rem';
     document.querySelector('.number').style.fontSize = '6rem';    
+};
+
+/* Functions to define events onclick and enter key */
+document.querySelector('.check').addEventListener('click', guessNumber);
+document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        guessNumber();
+    }
 });
